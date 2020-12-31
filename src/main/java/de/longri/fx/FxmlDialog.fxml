@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.longri.fx.FxmlDialog">
+   <children>
+      <Pane prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="388.0" layoutY="360.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="Ignore" visible="false" />
+      <Button cancelButton="true" layoutX="457.0" layoutY="360.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="Cancel" visible="false" />
+      <Button layoutX="531.0" layoutY="360.0" mnemonicParsing="false" onAction="#onOkClicked" prefHeight="27.0" prefWidth="60.0" text="OK" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.5" />
+   </children>
+</AnchorPane>
