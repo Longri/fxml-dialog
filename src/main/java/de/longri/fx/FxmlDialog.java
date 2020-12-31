@@ -29,8 +29,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class FxmlDialog {
 
-    private static AtomicInteger dialogCount = new AtomicInteger();
-    private static HashMap<Integer, DialogResponse> responseHashMap = new HashMap<>();
+    private final static AtomicInteger dialogCount = new AtomicInteger();
+    private final static HashMap<Integer, DialogResponse> responseHashMap = new HashMap<>();
     public Pane fxmlContentPane;
 
     public static DialogResponse show(Scene parentScene, URL contentFxmlUrl, ContentControllerCallBack contentCallBack, DialogResponse... responseTypes) {
