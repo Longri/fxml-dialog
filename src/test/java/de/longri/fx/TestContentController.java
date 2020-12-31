@@ -15,30 +15,15 @@
  ******************************************************************************/
 package de.longri.fx;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
-public class TestView extends Application {
+public class TestContentController {
+    public Label label;
+    public Button button;
 
-    public static void main(String[] args) {
-        launch(args);
+    public void onHalloDialogClicked(ActionEvent actionEvent) {
+        System.out.println("Hallo Dialog");
     }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(TestView.class.getResource("/de/longri/fx/TestView.fxml"));
-        Parent parent = loader.load();
-
-        TestViewController controller = loader.getController();
-
-        Scene scene = new Scene(parent);
-        primaryStage.setScene(scene);
-
-        controller.setStage(primaryStage);
-        primaryStage.show();
-    }
-
 }

@@ -1,12 +1,29 @@
+/*******************************************************************************
+ * Copyright 2021 See AUTHORS file.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package de.longri.fx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -14,28 +31,33 @@ public class FxmlDialog {
 
     private static AtomicInteger dialogCount = new AtomicInteger();
     private static HashMap<Integer, DialogResponse> responseHashMap = new HashMap<>();
+    public Pane fxmlContentPane;
 
-    public static DialogResponse show(Scene parentScene) {
+    public static DialogResponse show(Scene parentScene, URL contentFxmlUrl, ContentControllerCallBack contentCallBack, DialogResponse... responseTypes) {
         DialogResponse response = DialogResponse.unknown;
         try {
             Stage dialogStage = new Stage();
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.setResizable(false);
 
-            FXMLLoader loader = new FXMLLoader(FxmlDialog.class.getResource("/theme/controls/timedDialog.fxml"));
+            FXMLLoader loader = new FXMLLoader(FxmlDialog.class.getResource("/de/longri/fx/FxmlDialog.fxml"));
             Parent parent = loader.load();
 
             Scene dialogScene = new Scene(parent);
-
-            FxmlDialog timedDialog = loader.getController();
-
-            timedDialog.setStage(dialogStage);
+            FxmlDialog dialog = loader.getController();
+            dialog.setStage(dialogStage);
 
             int dialogNumber = dialogCount.incrementAndGet();
-            timedDialog.setResponseNumber(dialogNumber);
+            dialog.setResponseNumber(dialogNumber);
 
             //set style from parent scene
             dialogScene.getStylesheets().addAll(parentScene.getStylesheets());
+
+
+            //load content from fxml file
+            FXMLLoader contentLoader = new FXMLLoader(contentFxmlUrl);
+            dialog.fxmlContentPane.getChildren().add(contentLoader.load());
+            contentCallBack.callBack(contentLoader.getController());
 
             dialogStage.setScene(dialogScene);
             dialogStage.showAndWait();

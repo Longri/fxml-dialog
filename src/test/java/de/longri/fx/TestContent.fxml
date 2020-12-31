@@ -14,16 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************-->
-
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.longri.fx.FxmlDialog">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.longri.fx.TestContentController">
    <children>
-      <Pane fx:id="fxmlContentPane" prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="388.0" layoutY="360.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="Apply" />
-      <Button layoutX="457.0" layoutY="360.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="Cancel" />
-      <Button layoutX="531.0" layoutY="360.0" mnemonicParsing="false" onAction="#onOkClicked" prefHeight="27.0" prefWidth="60.0" text="OK" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.5" />
+      <Label fx:id="label" text="Test Content" />
+      <Button fx:id="button" layoutX="116.0" layoutY="150.0" mnemonicParsing="false" onAction="#onHalloDialogClicked" text="Hallo Dialog" />
    </children>
 </AnchorPane>
