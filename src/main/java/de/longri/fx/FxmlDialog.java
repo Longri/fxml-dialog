@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -60,6 +61,18 @@ public class FxmlDialog {
             contentCallBack.callBack(contentLoader.getController());
 
             dialogStage.setScene(dialogScene);
+
+            // Calculate the center position of the parent Stage
+            Window primaryStage = parentScene.getWindow();
+            double centerXPosition = primaryStage.getX() + primaryStage.getWidth() / 2d;
+            double centerYPosition = primaryStage.getY() + primaryStage.getHeight() / 2d;
+
+            // Relocate the pop-up Stage
+            dialogStage.setOnShown(ev -> {
+                dialogStage.setX(centerXPosition - dialogStage.getWidth() / 2d);
+                dialogStage.setY(centerYPosition - dialogStage.getHeight() / 2d);
+                dialogStage.show();
+            });
             dialogStage.showAndWait();
             response = responseHashMap.get(dialogNumber);
             responseHashMap.remove(dialogNumber);
