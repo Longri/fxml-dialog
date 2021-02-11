@@ -17,5 +17,5 @@ package de.longri.fx;
 
 public interface ContentControllerCallBack {
 
-    public void callBack(Object controller);
+    public void callBack(FxmlDialog dialog, Object controller);
 }

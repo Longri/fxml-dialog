@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--*******************************************************************************
  * Copyright 2021 See AUTHORS file.
  *
@@ -14,11 +15,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************-->
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.longri.fx.TestViewController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.longri.fx.TestViewController">
     <children>
         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onDialog1Clicked" text="Show Dialog     Ok, Cancel" />
+        <Button layoutX="14.0" layoutY="79.0" mnemonicParsing="false" onAction="#onDialog2Clicked" text="Show Dialog     Ok, Apply" />
+        <Button layoutX="14.0" layoutY="146.0" mnemonicParsing="false" onAction="#onDialog3Clicked" text="Show Dialog     Cancel, Apply, Ok" />
+        <Button layoutX="14.0" layoutY="208.0" mnemonicParsing="false" onAction="#onDialog4Clicked" text="Show Timed Dialog     Ok" />
+        <Button layoutX="14.0" layoutY="260.0" mnemonicParsing="false" onAction="#onDialog5Clicked" text="Show Node Dialog     Ok" />
+        <Button layoutX="14.0" layoutY="316.0" mnemonicParsing="false" onAction="#onDialog6Clicked" text="Show timed Node Dialog     Ok" />
+        <Button layoutX="14.0" layoutY="366.0" mnemonicParsing="false" onAction="#onDialog7Clicked" text="Show timed Alert Dialog with html" />
+        <Button layoutX="14.0" layoutY="416.0" mnemonicParsing="false" onAction="#onDialog8Clicked" text="Show remember Dialog " />
+      <Button layoutX="16.0" layoutY="463.0" mnemonicParsing="false" onAction="#onDialog9Clicked" text="Progress" />
     </children>
 </AnchorPane>

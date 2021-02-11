@@ -16,5 +16,7 @@
 package de.longri.fx;
 
 public enum DialogResponse {
-    OK, Cancel, Apply, unknown
+    OK, Cancel, Apply, unknown,
+    RememberOk, RememberCancel,
+    none
 }
